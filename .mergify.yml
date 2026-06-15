@@ -1,0 +1,12 @@
+queue_rules:
+  - name: default
+    merge_method: fast-forward
+    queue_conditions: []
+    merge_conditions:
+      - "#approved-reviews-by >= 1"
+pull_request_rules:
+  - name: queue-on-label
+    conditions: [label = ready-to-merge]
+    actions:
+      queue:
+        name: default
